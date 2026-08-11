@@ -254,6 +254,14 @@ export default async function handler(req, res) {
       }
     }
 
+    const orgData = await gql(
+      `query($org_id: uuid!) { organizations_by_pk(id: $org_id) { quota_used } }`,
+      { org_id: orgId }
+    );
+    await gql(
+      `mutation($org_id: uuid!, $new_used: Int!) { update_organizations_by_pk(pk_columns: { id: $org_id }, _set: { quota_used: $new_used }) { id } }`,
+      { org_id: orgId, new_used: orgData.organizations_by_pk.quota_used + 1 }
+    );
     await updateWorkflowRun(runId, { status: 'completed', finished_at: 'now()' });
     return res.status(200).json({ run_id: runId, status: 'completed' });
   } catch (err) {
