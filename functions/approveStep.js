@@ -161,7 +161,7 @@ export default async function handler(req, res) {
           id
           status
           workflow_run_id
-          step {
+          step: workflow_step {
             id
             step_order
             workflow_id
