@@ -3,7 +3,11 @@
 A mini n8n-style workflow builder for chaining AI agent steps, built with
 nhost (Postgres + Hasura + Auth + Functions), Hasura GraphQL, and Next.js.
 
-**Live app:** https://ai-workflow-builder-i3y97fxw6-poojakk112s-projects.vercel.app
+**Live app:** https://ai-workflow-builder-pink.vercel.app
+
+## 📸 Screenshot
+
+![Sign in screen](screenshots/sign-in.jpg)
 
 ## What's implemented (tested and working)
 
